@@ -1,0 +1,4 @@
+src/serviceWorker.js
+/docs/**
+/.gitignore
+/test/**
