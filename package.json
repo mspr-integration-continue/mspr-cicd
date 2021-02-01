@@ -15,7 +15,7 @@
     "doc": "jsdoc -c jsdoc.json",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint:fix": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint --fix",
     "test": "jest"
   },
   "dependencies": {
