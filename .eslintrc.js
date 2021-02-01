@@ -6,7 +6,6 @@ module.exports = {
   },
   // ignorePatterns: ['/docs', '/test'],
   extends: [
-    'airbnb',
     'plugin:vue/recommended',
     'eslint:recommended',
     'prettier/vue',
