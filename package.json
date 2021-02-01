@@ -2,15 +2,27 @@
   "name": "mspr-cicd",
   "version": "0.1.0",
   "private": true,
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --max-errors --max-warnings",
     "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
-    "test": "jest"
+    "test": "jest",
+    "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
+    "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master"
   },
   "dependencies": {
     "babel-jest": "^26.6.3",
+    "conventional-changelog-cli": "^2.1.1",
     "core-js": "^3.6.5",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
@@ -18,6 +30,7 @@
     "jest": "^26.6.3",
     "jsdoc": "^3.6.6",
     "lint-staged": "^10.5.3",
+    "npm-release": "^1.0.0",
     "prettier": "^2.2.1",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
