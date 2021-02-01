@@ -2,32 +2,45 @@
   "name": "mspr-cicd",
   "version": "0.1.0",
   "private": true,
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master",
+    "doc": "jsdoc -c jsdoc.json",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --max-errors --max-warnings",
     "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
+    "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
+    "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
+    "serve": "vue-cli-service serve",
     "test": "jest"
   },
   "dependencies": {
     "chai": "^4.2.0",
-    "core-js": "^3.6.5",
     "cypress": "^6.3.0",
     "faker": "^5.2.0",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.0.1",
-    "vuex-persistedstate": "^2.5.4",
     "babel-jest": "^26.6.3",
+    "better-docs": "^2.3.2",
+    "conventional-changelog-cli": "^2.1.1",
+    "core-js": "^3.6.5",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "jsdoc": "^3.6.6",
     "lint-staged": "^10.5.3",
+    "npm-release": "^1.0.0",
     "prettier": "^2.2.1",
-    "vue-jest": "^3.0.7"
+    "register-service-worker": "^1.7.1",
+    "vue": "^2.6.11",
+    "vue-jest": "^3.0.7",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
@@ -40,10 +53,37 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11",
+    "eslint": "^6.8.0",
     "sass": "^1.32.0",
     "sass-loader": "^10.0.0",
-    "vue-cli-plugin-store": "0.0.7",
-    "vue-template-compiler": "^2.6.11"
+    "vue-cli-plugin-store": "0.0.7"
+  },
+  "eslintConfig": {
+    "extends": "mspr-cicd"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.(js|jsx|ts|tsx|vue)": [
+      "npm run lint:fix"
+    ]
   },
   "eslintConfig": {
     "extends": "mspr-cicd"
