@@ -14,11 +14,8 @@
     "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master",
     "doc": "jsdoc -c jsdoc.json",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint --max-errors --max-warnings",
-    "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
-    "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
-    "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
-    "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint",
     "test": "jest"
   },
   "dependencies": {
@@ -107,7 +104,7 @@
   },
   "lint-staged": {
     "./src/**/*.(js|jsx|ts|tsx|vue)": [
-      "npm run lint:fix"
+      "npm run lint"
     ]
   }
 }
