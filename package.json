@@ -14,8 +14,8 @@
     "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master",
     "doc": "jsdoc -c jsdoc.json",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "lint:fix": "vue-cli-service lint --fix",
+    "lint": "vue-cli-service lint --max-errors --max-warnings",
+    "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
     "test": "jest"
   },
   "dependencies": {
