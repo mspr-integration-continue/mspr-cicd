@@ -6,7 +6,6 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint:fix": "vue-cli-service lint",
     "test": "jest"
   },
   "dependencies": {
@@ -60,7 +59,7 @@
   },
   "lint-staged": {
     "./src/**/*.(js|jsx|ts|tsx|vue)": [
-      "npm run lint:fix"
+      "npm run lint"
     ]
   }
 }
