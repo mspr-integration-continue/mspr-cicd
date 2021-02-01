@@ -16,7 +16,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --max-errors --max-warnings",
     "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
-    "test": "jest"
+    "test": "jest",
+    "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
+    "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master"
   },
   "dependencies": {
     "chai": "^4.2.0",

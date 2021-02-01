@@ -1,5 +1,6 @@
 ## 0.1.0 (2021-02-01)
 
+* docs(changelog): updated ([21ded60](https://github.com/AxelBlusseau/mspr-cicd/commit/21ded60))
 * feat: add ci rules ([43c632c](https://github.com/AxelBlusseau/mspr-cicd/commit/43c632c))
 * feat: add ci rules ([cc81509](https://github.com/AxelBlusseau/mspr-cicd/commit/cc81509))
 * feat: add ci rules ([d833d76](https://github.com/AxelBlusseau/mspr-cicd/commit/d833d76))
