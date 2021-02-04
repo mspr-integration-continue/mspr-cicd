@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  // ignorePatterns: ['/docs', '/test'],
+  ignorePatterns: ['/docs', '/test', './jest.config.js'],
   extends: [
     'plugin:vue/recommended',
     'eslint:recommended',
@@ -15,9 +15,8 @@ module.exports = {
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-  },
-  globals: {
-    $nuxt: true,
+    'quotes': ['error','single', { 'avoidEscape': true}],
+    'import/prefer-default-export': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
