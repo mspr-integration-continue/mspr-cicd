@@ -2,9 +2,9 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [master, develop, v1/develop]
+    branches: [master, develop]
   pull_request:
-    branches: [master, develop, v1/develop]
+    branches: [master, develop]
 
 jobs:
   code-style:
@@ -19,7 +19,18 @@ jobs:
       - name: eslint
         run: npm run lint
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: install
+        run: npm install
+
   build:
+    needs: [code-style, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,16 +41,21 @@ jobs:
         run: npm install
       - name: build app
         run: npm run build
-     - name: build artifact
-       uses: actions/upload-artifact@v2
-       with:
-         name: dist-without-markdown
-         path: |
-           dist
-           !dist/**/*.md
-         retention-days: 5
+      - name: build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: vue-app-dist
+          path: |
+            dist
+            !dist/**/*.md
+          retention-days: 5
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: vue-app-dist
 
   release-documentation:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -50,15 +66,5 @@ jobs:
         run: npm run doc
     - name: build release
         run: npm run changelog-git
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: install
-        run: npm install
 
 
