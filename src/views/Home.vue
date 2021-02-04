@@ -1,7 +1,12 @@
 <template>
   <div class="home">
-    <div v-for="u in userDatas" :key="u.nom" @click="voirCompte(u.numCompte)" :id="u.numCompte">
-      {{u}}
+    <div class="filtre">
+      <input type="text" v-model="filtre">
+    </div>
+    <div v-for="u in userDatas" :key="u.nom" @click="voirCompte(u.numCompte)" :id="u.numCompte" >
+      <div v-if="u.nom.startsWith(filtre)">
+        {{u}}
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +27,7 @@ export default {
   },
   data() {
     return {
+      filtre: '',
     };
   },
 };

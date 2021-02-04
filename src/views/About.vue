@@ -26,10 +26,14 @@ export default {
   methods: {
     addMoney() {
       let solde = parseInt(this.user[0].solde, 10);
-      solde += parseInt(this.money, 10);
+      solde = this.validationMoney(solde, parseInt(this.money, 10));
       this.user[0].solde = solde;
       this.userDatas[this.index] = this.user;
       // this.saveData(usersData);
+    },
+    validationMoney(solde, ajout) {
+      const newSolde = solde + ajout > 0 ? solde + ajout : solde;
+      return newSolde;
     },
   },
   data() {
