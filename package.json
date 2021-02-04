@@ -10,18 +10,20 @@
     "node": ">=12"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master",
+    "doc": "jsdoc -c jsdoc.json",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --max-errors --max-warnings",
     "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
-    "test": "jest",
     "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
     "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
-    "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master"
+    "serve": "vue-cli-service serve",
+    "test": "jest"
   },
   "dependencies": {
     "babel-jest": "^26.6.3",
+    "better-docs": "^2.3.2",
     "conventional-changelog-cli": "^2.1.1",
     "core-js": "^3.6.5",
     "eslint-config-prettier": "^7.2.0",
