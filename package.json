@@ -22,15 +22,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "chai": "^4.2.0",
-    "cypress": "^6.3.0",
-    "faker": "^5.2.0",
     "babel-jest": "^26.6.3",
     "better-docs": "^2.3.2",
+    "chai": "^4.2.0",
     "conventional-changelog-cli": "^2.1.1",
     "core-js": "^3.6.5",
+    "cypress": "^6.3.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "faker": "^5.2.0",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "jsdoc": "^3.6.6",
@@ -40,7 +40,8 @@
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-jest": "^3.0.7",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
@@ -49,41 +50,14 @@
     "@vue/cli-service": "^4.5.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11",
     "eslint": "^6.8.0",
     "sass": "^1.32.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-store": "0.0.7"
-  },
-  "eslintConfig": {
-    "extends": "mspr-cicd"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "./src/**/*.(js|jsx|ts|tsx|vue)": [
-      "npm run lint:fix"
-    ]
   },
   "eslintConfig": {
     "extends": "mspr-cicd"
