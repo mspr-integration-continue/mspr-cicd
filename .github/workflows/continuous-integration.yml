@@ -30,6 +30,10 @@ build:
       run: npm install
     - name: build app
       run: npm run build
+    - name: build documentation
+      run: npm run doc
+    - name: build release
+      run: npm run changelog-git
 
 test:
   runs-on: ubuntu-latest
@@ -41,25 +45,4 @@ test:
     - name: install
       run: npm install
 
-release:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12
-    - name: install
-      run: npm install
-    - name: npm run changelog-git
-
-docs:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12
-    - name: install
-      run: npm install
-    - name: npm run doc
 
