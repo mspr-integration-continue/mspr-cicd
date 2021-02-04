@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node_version: 12
+          node-version: 12
       - name: install
         run: npm install
       - name: eslint
@@ -25,7 +25,7 @@ build:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
-        node_version: 12
+        node-version: 12
     - name: install
       run: npm install
     - name: build app
@@ -37,7 +37,7 @@ test:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
-        node_version: 12
+        node-version: 12
     - name: install
       run: npm install
 
@@ -47,8 +47,19 @@ release:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
-        node_version: 12
+        node-version: 12
     - name: install
       run: npm install
     - name: npm run changelog-git
+
+docs:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: install
+      run: npm install
+    - name: npm run doc
 
