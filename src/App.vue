@@ -9,6 +9,9 @@
 </template>
 
 <script>
+/**
+ * @component
+ */
 export default {
   name: 'App',
 };
