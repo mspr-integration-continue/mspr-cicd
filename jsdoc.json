@@ -1,18 +1,28 @@
 {
+  "tags": {
+    "allowUnknownTags": true
+  },
   "source": {
-    "include": ["src/**/*.js"],
-    "includePattern": ".+\\.js(doc|x)?$",
-    "excludePattern": "(node_modules/|docs)"
+    "include": ["./src"],
+    "includePattern": "\\.(vue|js)$",
+    "exclude": ["./src/App.vue"]
   },
   "plugins": [
+    "better-docs/component",
+    "better-docs/category",
     "plugins/markdown"
   ],
-  "templates": {
-    "cleverLinks": true,
-    "monospaceLinks": true
-  },
   "opts": {
+    "encoding": "utf8",
+    "destination": "docs/",
     "recurse": true,
-    "destination": "./docs/"
+    "verbose": true,
+    "readme": "./readme.md",
+    "template": "node_modules/better-docs"
+  },
+  "templates": {
+    "better-docs": {
+      "name": "Vue app"
+    }
   }
 }
