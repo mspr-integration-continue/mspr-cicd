@@ -18,10 +18,6 @@
 
     import './styles/iframe.css';
 
-<<<<<<< HEAD
-  import Component0 from '../src/components/ProgressBar.vue';
-vueComponents['ProgressBar'] = Component0;
-=======
   import Component0 from '../src/views/About.vue';
 vueComponents['About'] = Component0;
 
@@ -33,4 +29,3 @@ vueComponents['Home'] = Component2;
 
 import Component3 from '../src/components/ProgressBar.vue';
 vueComponents['ProgressBar'] = Component3;
->>>>>>> b9867388c0c87c5fb6dd3249e5419969b23b88a8
