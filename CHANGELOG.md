@@ -1,5 +1,11 @@
 ## 0.1.0 (2021-02-04)
 
+* docs(changelog): updated ([c1e3318](https://github.com/mspr-integration-continue/mspr-cicd/commit/c1e3318))
+* docs(changelog): updated ([8f0973f](https://github.com/mspr-integration-continue/mspr-cicd/commit/8f0973f))
+* docs(changelog): updated ([49c7b48](https://github.com/mspr-integration-continue/mspr-cicd/commit/49c7b48))
+* docs(changelog): updated ([b5a784e](https://github.com/mspr-integration-continue/mspr-cicd/commit/b5a784e))
+* docs(changelog): updated ([aaa8887](https://github.com/mspr-integration-continue/mspr-cicd/commit/aaa8887))
+* docs(changelog): updated ([21ded60](https://github.com/mspr-integration-continue/mspr-cicd/commit/21ded60))
 * fix: add ci rules ([929895f](https://github.com/mspr-integration-continue/mspr-cicd/commit/929895f))
 * fix: add ci rules ([30b4289](https://github.com/mspr-integration-continue/mspr-cicd/commit/30b4289))
 * fix: add ci rules ([d6e3fba](https://github.com/mspr-integration-continue/mspr-cicd/commit/d6e3fba))
@@ -47,11 +53,6 @@
 * feat(merge): fix merge ([bd1eda9](https://github.com/mspr-integration-continue/mspr-cicd/commit/bd1eda9))
 * feat(users): 2 views and e2e ([b44be2d](https://github.com/mspr-integration-continue/mspr-cicd/commit/b44be2d))
 * feat(users): add 2 features ([ec51c24](https://github.com/mspr-integration-continue/mspr-cicd/commit/ec51c24))
-* docs(changelog): updated ([8f0973f](https://github.com/mspr-integration-continue/mspr-cicd/commit/8f0973f))
-* docs(changelog): updated ([49c7b48](https://github.com/mspr-integration-continue/mspr-cicd/commit/49c7b48))
-* docs(changelog): updated ([b5a784e](https://github.com/mspr-integration-continue/mspr-cicd/commit/b5a784e))
-* docs(changelog): updated ([aaa8887](https://github.com/mspr-integration-continue/mspr-cicd/commit/aaa8887))
-* docs(changelog): updated ([21ded60](https://github.com/mspr-integration-continue/mspr-cicd/commit/21ded60))
 * delete console logs ([0950017](https://github.com/mspr-integration-continue/mspr-cicd/commit/0950017))
 * init ([b7a14c9](https://github.com/mspr-integration-continue/mspr-cicd/commit/b7a14c9))
 
