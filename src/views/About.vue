@@ -35,7 +35,6 @@ export default {
       solde = this.validationMoney(solde, parseInt(this.money, 10));
       this.user[0].solde = solde;
       this.userDatas[this.index] = this.user;
-      // this.saveData(usersData);
     },
     validationMoney(solde, ajout) {
       const newSolde = solde + ajout > 0 ? solde + ajout : solde;
