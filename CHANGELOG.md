@@ -1,5 +1,7 @@
 ## 0.1.0 (2021-02-04)
 
+* docs(changelog): updated ([aaa8887](https://github.com/AxelBlusseau/mspr-cicd/commit/aaa8887))
+* docs(changelog): updated ([21ded60](https://github.com/AxelBlusseau/mspr-cicd/commit/21ded60))
 * feat: add ci rules ([02e0784](https://github.com/AxelBlusseau/mspr-cicd/commit/02e0784))
 * feat: add ci rules ([dd2a865](https://github.com/AxelBlusseau/mspr-cicd/commit/dd2a865))
 * feat: add ci rules ([5327c21](https://github.com/AxelBlusseau/mspr-cicd/commit/5327c21))
@@ -19,7 +21,6 @@
 * feat: add ci rules ([6c0f675](https://github.com/AxelBlusseau/mspr-cicd/commit/6c0f675))
 * feat: add ci rules ([04a775e](https://github.com/AxelBlusseau/mspr-cicd/commit/04a775e))
 * feat: test ([d141d2f](https://github.com/AxelBlusseau/mspr-cicd/commit/d141d2f))
-* docs(changelog): updated ([21ded60](https://github.com/AxelBlusseau/mspr-cicd/commit/21ded60))
 * init ([b7a14c9](https://github.com/AxelBlusseau/mspr-cicd/commit/b7a14c9))
 
 
