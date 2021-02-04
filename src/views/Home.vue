@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <div class="filtre">
-      <input type="text" v-model="filtre">
+      <input v-model="filtre" type="text" />
     </div>
-    <div v-for="u in userDatas" :key="u.nom" @click="voirCompte(u.numCompte)" :id="u.numCompte" >
+    <div v-for="u in userDatas" :id="u.numCompte" :key="u.nom" @click="voirCompte(u.numCompte)">
       <div v-if="u.nom.startsWith(filtre)">
-        {{u}}
+        {{ u }}
       </div>
     </div>
   </div>
@@ -15,20 +15,19 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
-  computed: {
-    ...mapState('users', ['userDatas']),
-  },
-  mounted() {
-  },
-  methods: {
-    voirCompte(numCompte) {
-      this.$router.push({ name: 'About', params: { numCompte } });
-    },
-  },
   data() {
     return {
       filtre: '',
     };
+  },
+  computed: {
+    ...mapState('users', ['userDatas']),
+  },
+  mounted() {},
+  methods: {
+    voirCompte(numCompte) {
+      this.$router.push({ name: 'About', params: { numCompte } });
+    },
   },
 };
 </script>

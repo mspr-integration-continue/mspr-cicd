@@ -1,6 +1,4 @@
 const mutations = {
-  setUsers() {
-  },
-
+  setUsers() {},
 };
 export default mutations;
