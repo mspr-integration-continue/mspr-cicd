@@ -18,7 +18,6 @@ export default {
   methods: {
     voirCompte(numCompte) {
       this.$router.push({ name: 'About', params: { numCompte } });
-      console.log(numCompte);
     },
   },
   data() {

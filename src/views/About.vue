@@ -20,18 +20,11 @@ export default {
   },
   name: 'About',
   mounted() {
-    console.log(this.userDatas);
-    console.log(this.$route.params.numCompte);
     this.user = this.userDatas.filter((u) => u.numCompte === this.$route.params.numCompte);
     this.index = this.userDatas.indexOf(this.user[0]);
-    console.log('bjr je suis l\'index');
-    console.log(this.userDatas.indexOf(this.user[0]));
-    console.log(this.userDatas);
-    console.log(this.user);
   },
   methods: {
     addMoney() {
-      console.log(this.user[0].solde);
       let solde = parseInt(this.user[0].solde, 10);
       solde += parseInt(this.money, 10);
       this.user[0].solde = solde;
