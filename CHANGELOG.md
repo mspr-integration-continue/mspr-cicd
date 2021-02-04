@@ -22,5 +22,3 @@
 * init ([b7a14c9](https://github.com/mspr-integration-continue/mspr-cicd/commit/b7a14c9))
 
 
-
-

@@ -70,9 +70,13 @@
             id="sidebarNav"
         >
             
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="ProgressBar.html">ProgressBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="About.html">About</a></li><li><a href="HelloWorld.html">HelloWorld</a></li><li><a href="Home.html">Home</a></li><li><a href="ProgressBar.html">ProgressBar</a></li></ul></div>
                 
             </nav>
         </div>
@@ -104,6 +108,9 @@
 &lt;script>
 import { mapState } from 'vuex';
 
+/**
+ * @component
+ */
 export default {
   name: 'Home',
   data() {
@@ -118,27 +125,6 @@ export default {
   methods: {
     voirCompte(numCompte) {
       this.$router.push({ name: 'About', params: { numCompte } });
-    },
-  },
-  methods: {
-    /**
-     * Add two numbers.
-     * @param{number} num1 The first number to add
-     * @param{number} num2 The second number to add
-     * @return{number} The sum of the two numbers.
-     */
-    addNums: function (num1, num2) {
-      return num1 + num2;
-    },
-
-    /**
-     * Concatenate two strings.
-     * @param{string} str1 The first string to concatenate.
-     * @param{string} str2 The second string to concatenate.
-     * @return{string} The concatentation of the two strings.
-     */
-    concat: function (str1, str2) {
-      return str1 + str2;
     },
   },
 };
@@ -169,6 +155,8 @@ export default {
 <script src="scripts/app.min.js"></script>
 <script>PR.prettyPrint();</script>
 <script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
 
 </body>
 </html>

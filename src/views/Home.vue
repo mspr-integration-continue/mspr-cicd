@@ -13,6 +13,9 @@
 <script>
 import { mapState } from 'vuex';
 
+/**
+ * @component
+ */
 export default {
   name: 'Home',
   data() {
