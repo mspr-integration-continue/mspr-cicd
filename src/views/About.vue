@@ -10,9 +10,13 @@
     <button id="valider" @click="addMoney()">Valider</button>
   </div>
 </template>
+
 <script>
 import { mapState } from 'vuex';
 
+/**
+ * @component
+ */
 export default {
   name: 'About',
   data() {
