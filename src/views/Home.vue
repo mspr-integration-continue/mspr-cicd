@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 /**
  * @component
@@ -26,8 +26,11 @@ export default {
   computed: {
     ...mapState('users', ['userDatas']),
   },
-  mounted() {},
+  created() {
+    this.getUsers();
+  },
   methods: {
+    ...mapActions('users', ['getUsers']),
     voirCompte(numCompte) {
       this.$router.push({ name: 'About', params: { numCompte } });
     },
