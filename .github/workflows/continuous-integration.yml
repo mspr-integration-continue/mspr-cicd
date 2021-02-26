@@ -69,17 +69,17 @@ jobs:
       - name: build documentation
         run: npm run doc
 
-    release:
-      if: always()
-      needs: [ documentations ]
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 12
-        - name: build release
-          run: npm run changelog-git
+  release:
+    if: always()
+    needs: [ documentations ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: build release
+        run: npm run changelog-git
 
   codacy-security-scan:
     name: Codacy Security Scan
