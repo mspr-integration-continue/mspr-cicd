@@ -55,15 +55,13 @@ jobs:
         with:
           name: vue-app-dist
 
-  analyze:
-    name: Run PMD
+  codacy-analysis-cli:
+    name: Codacy Analysis CLI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - id: pmd
-        uses: rtjl/pmd-analyzer-action@v0.1.5-alpha
-        with:
-          pmd-version: '6.31.0'
-          source-path: './src'
+      - name: Checkout code
+        uses: actions/checkout@master
 
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
 
