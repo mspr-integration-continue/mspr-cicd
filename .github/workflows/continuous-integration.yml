@@ -2,9 +2,9 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [master, feat/cicd-analysis]
+    branches: [master, develop, v1/develop]
   pull_request:
-    branches: [master, develop]
+    branches: [master, develop, v1/develop]
 
 jobs:
   code-style:
