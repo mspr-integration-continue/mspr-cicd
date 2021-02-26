@@ -63,7 +63,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Run Codacy Analysis CLI
-        uses: codacy/codacy-analysis-cli-action@master -- directory coda
+        uses: codacy/codacy-analysis-cli-action@master
         with:
           directory: ./src
           output: results.sarif
