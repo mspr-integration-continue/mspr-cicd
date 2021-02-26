@@ -2,7 +2,7 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [master, develop]
+    branches: [master, feat/cicd-analysis]
   pull_request:
     branches: [master, develop]
 
