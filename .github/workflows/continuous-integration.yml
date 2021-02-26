@@ -2,7 +2,7 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [master, feat/cicd-analysis]
+    branches: [master, develop]
   pull_request:
     branches: [master, develop]
 
@@ -55,7 +55,34 @@ jobs:
         with:
           name: vue-app-dist
 
+  documentations:
+    if: always()
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 12
+        - name: install
+          run: npm install
+        - name: build documentation
+          run: npm run doc
+
+  release:
+    if: always()
+      needs: [documentations]
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 12
+        - name: build release
+          run: npm run changelog-git
+
   codacy-security-scan:
+    needs: [code-style, test]
     name: Codacy Security Scan
     runs-on: ubuntu-latest
     steps:
