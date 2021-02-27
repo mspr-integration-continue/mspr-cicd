@@ -1,13 +1,29 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <div>
-      <span>Nom : {{ user[0].nom }}</span>
-      <span> Prenom : {{ user[0].prenom }}</span>
-      <div id="solde">{{ user[0].solde }}</div>
+  <div>
+    <div class="card card-style">
+      <div class="card-header">Détails d'un compte</div>
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ user[0].nom }} {{ user[0].prenom }}</h5>
+        <p class="card-text">Solde actuel : {{ user[0].solde }}€</p>
+        <div class="input-group mb-3">
+          <input
+            id="somme"
+            v-model="money"
+            type="number"
+            class="form-control"
+            placeholder="Action"
+          />
+          <button
+            id="button-addon2 valider"
+            class="btn btn-outline-secondary"
+            type="button"
+            @click="addMoney()"
+          >
+            Valider
+          </button>
+        </div>
+      </div>
     </div>
-    <input id="somme" v-model="money" type="number" />
-    <button id="valider" @click="addMoney()">Valider</button>
   </div>
 </template>
 
@@ -47,3 +63,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.card-style {
+  margin: 10vh;
+}
+</style>
