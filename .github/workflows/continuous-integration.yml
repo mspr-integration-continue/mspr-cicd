@@ -2,9 +2,9 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [master, develop]
+    branches: [master, develop, v1/develop]
   pull_request:
-    branches: [master, develop]
+    branches: [master, develop, v1/develop]
 
 jobs:
   code-style:
@@ -30,7 +30,6 @@ jobs:
         run: npm install
 
   build:
-    if: always()
     needs: [code-style, test]
     runs-on: ubuntu-latest
     steps:
@@ -55,8 +54,7 @@ jobs:
         with:
           name: vue-app-dist
 
-  release-documentation:
-    if: always()
+  documentations:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -68,7 +66,16 @@ jobs:
         run: npm install
       - name: build documentation
         run: npm run doc
-      - name: build release
-        run: npm run changelog-git
+
+  release:
+    needs: [ documentations ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      # - name: build release
+      #  run: npm run changelog-git
 
 
