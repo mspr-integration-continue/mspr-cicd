@@ -29,7 +29,7 @@ jobs:
       - name: install
         run: npm install
       - name: Cypress
-        run: node_modules/.bin/cypress run
+        run: npm run cypress
 
   build:
     if: always()

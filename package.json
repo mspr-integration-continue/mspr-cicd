@@ -19,7 +19,8 @@
     "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
     "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
     "serve": "vue-cli-service serve",
-    "test": "jest"
+    "test": "jest",
+    "cypress": "node_modules/.bin/cypress run"
   },
   "dependencies": {
     "babel-jest": "^26.6.3",
