@@ -54,7 +54,7 @@ jobs:
         with:
           name: vue-app-dist
       - name: compress folder
-        run: tar -zcvf dist/vue-app.tar.gz dist/vue-app-dist
+        run: tar -zcvf vue-app.tar.gz dist/
       - name: Nexus Repository Publisher for GitHub Actions
         uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
         with:
@@ -63,7 +63,7 @@ jobs:
           password: ${{ secrets.NEXUS_PASSWORD }}
           format: raw
           repository: preudhomme-repo
-          filename: dist/vue-app.tar.gz
+          filename: vue-app.tar.gz
           coordinates: artifactId=app version=1.0.0
           assets: extension=tar.gz
 
