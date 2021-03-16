@@ -64,7 +64,7 @@ jobs:
           format: raw
           repository: preudhomme-repo
           filename: vue-app.tar.gz
-          coordinates: artifactId=app version=1.0.0
+          coordinates: groupId=com.preudhomme artifactId=app version=1.0.0
           assets: extension=tar.gz
 
 
