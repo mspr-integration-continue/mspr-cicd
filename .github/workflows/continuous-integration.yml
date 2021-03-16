@@ -25,9 +25,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-vserion: 12
       - name: install
         run: npm install
+      - name: run TU
+        run: npm run test
 
   build:
     needs: [code-style, test]
@@ -53,6 +55,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: vue-app-dist
+      - name: compress folder
+        run: tar -zcvf vue-app.tar.gz dist/
+      - name: Nexus Repository Upload
+        run: curl -v -u admin:${{ secrets.NEXUS_PASSWORD }} --upload-file vue-app.tar.gz http://nexus.romainbdt.fr:8081/repository/preudhomme-repo/vue-app.tar.gz
+
+
 
   documentations:
     needs: build
