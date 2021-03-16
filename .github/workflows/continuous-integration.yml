@@ -24,16 +24,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: cypress-io/github-action@v2
         with:
-          browser: chrome
-          node-version: 12
+          node-vserion: 12
       - name: install
         run: npm install
       - name: run TU
         run: npm run test
-      - name: run Cypress
-        run: npx cypress run
 
   build:
     needs: [code-style, test]
