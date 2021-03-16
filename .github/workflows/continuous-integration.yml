@@ -28,6 +28,10 @@ jobs:
           node-version: 12
       - name: install
         run: npm install
+      - name: run TU
+        run: npm run test
+      - name: run Cypress
+        run: npx cypress run
 
   build:
     needs: [code-style, test]

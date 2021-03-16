@@ -4,7 +4,7 @@
       <div class="card-header">Détails d'un compte</div>
       <div class="card-body text-center">
         <h5 class="card-title">{{ user[0].nom }} {{ user[0].prenom }}</h5>
-        <p class="card-text">Solde actuel : {{ user[0].solde }}€</p>
+        <p id="solde" class="card-text solde">Solde actuel : {{ user[0].solde }}€</p>
         <div class="input-group mb-3">
           <input
             id="somme"
@@ -14,7 +14,7 @@
             placeholder="Action"
           />
           <button
-            id="button-addon2 valider"
+            id="button-addon2"
             class="btn btn-outline-secondary"
             type="button"
             @click="addMoney()"
