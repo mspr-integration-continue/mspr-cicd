@@ -60,7 +60,26 @@ jobs:
       - name: Nexus Repository Upload
         run: curl -v -u admin:${{ secrets.NEXUS_PASSWORD }} --upload-file vue-app.tar.gz http://nexus.romainbdt.fr:8081/repository/preudhomme-repo/vue-app.tar.gz
 
-
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: vue-app-dist
+          path: |
+            dist
+            !dist/**/*.md
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
   documentations:
     needs: build
