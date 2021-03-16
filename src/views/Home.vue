@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" style="background: #f8f8f8">
     <input
       v-model="filtre"
       class="form-control input-home"
