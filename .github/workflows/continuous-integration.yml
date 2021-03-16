@@ -62,6 +62,7 @@ jobs:
           format: raw
           repository: preudhomme-repo
           filename: ./vue-app-dist
+          coordinates: artifactId=app version=1.0.0
 
 
 
