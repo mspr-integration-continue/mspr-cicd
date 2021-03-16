@@ -55,17 +55,8 @@ jobs:
           name: vue-app-dist
       - name: compress folder
         run: tar -zcvf vue-app.tar.gz dist/
-      - name: Nexus Repository Publisher for GitHub Actions
-        uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
-        with:
-          serverUrl: http://nexus.romainbdt.fr:8081
-          username: admin
-          password: 911ad435-c246-4cf6-99a8-5f4a871ce327
-          format: raw
-          repository: preudhomme-repo
-          filename: vue-app.tar.gz
-          coordinates: groupId=com.preudhomme artifactId=app version=1.0.0
-          assets: extension=tar.gz
+      - name: Nexus Repository Upload
+        run: curl -v -u admin:${{ secrets.NEXUS_PASSWORD }} --upload-file vue-app.tar.gz http://nexus.romainbdt.fr:8081/repository/preudhomme-repo/vue-app.tar.gz
 
 
 
