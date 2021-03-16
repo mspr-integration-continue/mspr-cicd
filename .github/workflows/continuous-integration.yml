@@ -63,6 +63,7 @@ jobs:
           repository: preudhomme-repo
           filename: ./vue-app-dist
           coordinates: artifactId=app version=1.0.0
+          assets: extension=bin
 
 
 
