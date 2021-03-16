@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.NEXUS_PASSWORD }}
           format: raw
           repository: preudhomme-repo
-          filename: ./vue-app-dist
+          filename: vue-app-dist
           coordinates: artifactId=app version=1.0.0
           assets: extension=bin
 
