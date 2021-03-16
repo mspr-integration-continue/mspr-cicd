@@ -2,27 +2,46 @@
   "name": "mspr-cicd",
   "version": "0.1.0",
   "private": true,
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master",
+    "doc": "jsdoc -c jsdoc.json",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --max-errors --max-warnings",
     "lint:fix": "vue-cli-service lint --max-errors --max-warnings --fix",
+    "release-after-pr-patch": "git pull --rebase && npm run test && npm-release patch && npm run changelog-git",
+    "release-after-pr-minor": "git pull --rebase && npm run test && npm-release minor && npm run changelog-git",
+    "serve": "vue-cli-service serve",
     "test": "jest"
   },
   "dependencies": {
     "babel-jest": "^26.6.3",
+    "better-docs": "^2.3.2",
+    "chai": "^4.2.0",
+    "conventional-changelog-cli": "^2.1.1",
     "core-js": "^3.6.5",
+    "cypress": "^6.3.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "faker": "^5.2.0",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "jsdoc": "^3.6.6",
     "lint-staged": "^10.5.3",
+    "npm-release": "^1.0.0",
     "prettier": "^2.2.1",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-jest": "^3.0.7",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
@@ -31,6 +50,9 @@
     "@vue/cli-service": "^4.5.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.1.0",
+    "sass": "^1.32.0",
+    "vue-cli-plugin-store": "0.0.7",
+    "better-docs": "^2.3.2",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",

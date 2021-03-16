@@ -42,6 +42,7 @@
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
     <h3>Ecosystem</h3>
+    <button @click="test">test</button>
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -61,15 +62,19 @@
 </template>
 
 <script>
+/**
+ * @component
+ * @example
+ * <HelloWorld />
+ */
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String,
+    msg: { type: String, default: '' },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
