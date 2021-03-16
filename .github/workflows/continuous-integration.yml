@@ -43,6 +43,17 @@ jobs:
         run: npm install
       - name: build app
         run: npm run build
+        
+  artefact: 
+    needs: [code-style, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+            node-version: 12
+      - name: install
+        run: npm install && npm run build
       - name: build artifact
         uses: actions/upload-artifact@v2
         with:
@@ -51,16 +62,29 @@ jobs:
             dist
             !dist/**/*.md
           retention-days: 5
-      - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: vue-app-dist
       - name: compress folder
         run: tar -zcvf vue-app.tar.gz dist/
       - name: Nexus Repository Upload
         run: curl -v -u admin:${{ secrets.NEXUS_PASSWORD }} --upload-file vue-app.tar.gz http://nexus.romainbdt.fr:8081/repository/preudhomme-repo/vue-app.tar.gz
 
-
+  deploy:
+    name: Deploy
+    needs: artefact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: vue-app-dist
+          path: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
   documentations:
     needs: build
