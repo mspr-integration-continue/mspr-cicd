@@ -60,7 +60,7 @@ jobs:
         with:
           serverUrl: http://nexus.romainbdt.fr:8081
           username: admin
-          password: ${{ secrets.NEXUS_PASSWORD }}
+          password: 911ad435-c246-4cf6-99a8-5f4a871ce327
           format: raw
           repository: preudhomme-repo
           filename: vue-app.tar.gz
